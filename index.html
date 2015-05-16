@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html>
 <head>
-  <title>Meteor showers</title>
+  <title>my sky</title>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
@@ -17,6 +17,7 @@
   <div id="label"><h2>Label label</h2></div>
   <!-- Three.JS Container -->
   <div id="container"></div>
+  <div id="horizon"></div>
 
 <!--
   <div id="loading-container">
@@ -96,7 +97,25 @@
       float X = r * (cos(o_rad) * cos(v + p_rad - o_rad) - sin(o_rad) * sin(v + p_rad - o_rad) * cos(i_rad));
       float Y = r * (sin(o_rad) * cos(v + p_rad - o_rad) + cos(o_rad) * sin(v + p_rad - o_rad) * cos(i_rad));
       float Z = r * (sin(v + p_rad - o_rad) * sin(i_rad));
+
       return vec3(X, Y, Z);
+
+/*
+      float Xe = -0.00515816;
+      float Ye = -1.01625196;
+      float Ze = 0;
+      float Xp = X - Xe;
+      float Yp = Y - Ye;
+      float Zp = Z - Ze;
+
+      float Xq = Xp;
+      // Obliquity of the ecliptic for J2000 is 23.439292 degrees, or 0.40909282 radians.
+      float ec = 0.40909282;
+      float Yq = Yp * cos(ec) - Zp * sin(ec);
+      float Zq = Yp * sin(ec) + Zp * cos(ec);
+
+      return vec3(Xq, Yq, Zq);
+*/
     }
 
     void main() {

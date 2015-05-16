@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #container {
   position: absolute;
   top: 0;
@@ -16,4 +21,16 @@
   margin: 5px 15px;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+#horizon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 300px;
+  background: url(/img/silhouette.svg);
+  width: 100%;
+  z-index: 999999;
+  background-color: rgb(0, 0, 0, 0);
+  background-position: 40% 37%;
 }

@@ -123,8 +123,7 @@
       for (var i=0; i < planets.length; i++) {
         scene.remove(planets[i].getEllipse());
       }
-    }
-    else {
+    } else {
       for (var i=0; i < planets.length; i++) {
         scene.add(planets[i].getEllipse());
       }
@@ -140,7 +139,7 @@
     return WEB_GL_ENABLED && Detector.webgl;
   }
 
-  function init(){
+  function init() {
     // Sets up the scene
     $('#loading-text').html('renderer');
     if (isWebGLSupported()){
@@ -207,7 +206,7 @@
     sprite.scale.x = opts.sun_scale;
     sprite.scale.y = opts.sun_scale;
     sprite.scale.z = 1;
-    scene.add(sprite);
+    //scene.add(sprite);
 
     // Ellipses
     $('#loading-text').html('planets');
@@ -262,6 +261,8 @@
     scene.add(jupiter.getEllipse());
 
     planets = [mercury, venus, earth, mars, jupiter];
+
+    togglePlanetOrbits();
 
     // Skybox
     var geometry = new THREE.SphereGeometry(3000, 60, 40);
@@ -382,7 +383,7 @@
     attributes.locked.value[locked_object_idx] = 1.0;
     setAttributeNeedsUpdateFlags();
 
-    locked_object_ellipse = locked_object.getEllipse();
+    //locked_object_ellipse = locked_object.getEllipse();
     scene.add(locked_object_ellipse);
     opts.camera_fly_around = true;
   } // end setLock
@@ -445,6 +446,7 @@
            */
       setTimeout(function() {
         me.processAsteroidRankings(window.ORBIT_DATA);
+        setLock('earth');
       }, 0);
     }
   }
@@ -572,8 +574,9 @@
         // Follow locked object
         var pos = locked_object.getPosAtTime(jed);
         //cam.position.set(pos[0]+25, pos[1]-25, pos[2]-70);
-        cam.position.set(pos[0]+3, pos[1]+3, pos[2]+3);
-        cameraControls.target = new THREE.Vector3(pos[0], pos[1], pos[2]);
+        cam.position.set(pos[0], pos[1], pos[2]);
+        //cameraControls.target = new THREE.Vector3(pos[0], pos[1], pos[2]);
+        cameraControls.target = new THREE.Vector3(pos[0]-1, pos[1]-1, pos[2]-1);
       } else {
         setNeutralCameraPosition();
       }
