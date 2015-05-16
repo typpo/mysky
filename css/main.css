@@ -28,7 +28,7 @@ body {
   left: 0;
   bottom: 0;
   height: 300px;
-  background: url(/img/silhouette.svg);
+  background: url(../img/silhouette.svg);
   width: 100%;
   z-index: 999999;
   background-position: 40% 37%;
