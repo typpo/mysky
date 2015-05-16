@@ -260,16 +260,8 @@
           name: 'Jupiter'
         });
     scene.add(jupiter.getEllipse());
-    var comet169pneat = new Orbit3D(Ephemeris.comet169pneat,
-        {
-          color: 0xccffff, width: 1, jed: jed, object_size: 1.7,
-          display_color: new THREE.Color(0xccffff),
-          particle_geometry: particle_system_geometry,
-          name: '169P/NEAT'
-        });
-    scene.add(comet169pneat.getEllipse());
 
-    planets = [mercury, venus, earth, mars, jupiter, comet169pneat];
+    planets = [mercury, venus, earth, mars, jupiter];
 
     // Skybox
     var geometry = new THREE.SphereGeometry(3000, 60, 40);
