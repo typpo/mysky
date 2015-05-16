@@ -1,6 +1,4 @@
-# showers
-Rendering of debris clouds in the solar system that cause meteor showers.
+# my sky
 
-When the Earth passes through a cloud, that's a meteor shower!
-
-This is a modified version of [Asterank](http://github.com/typpo/asterank)'s 3D code, and should be merged back in at some point...
+Introduction to interesting celestial phenomena, from the point of view of
+someone on Earth.

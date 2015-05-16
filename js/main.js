@@ -421,6 +421,8 @@
     opts.camera_fly_around = true;
   } // end setLock
 
+  window.setLock = setLock;
+
   function handleSimulationResults(e, particles) {
     var data = e.data;
     switch(data.type) {
@@ -603,13 +605,8 @@
       if (locked_object) {
         // Follow locked object
         var pos = locked_object.getPosAtTime(jed);
-        if (featured_2012_da14 && locked_object.name === 'Earth') {
-          cam.position.set(pos[0]-20, pos[1]+20, pos[2]+20);
-        }
-        else {
-          //cam.position.set(pos[0]+50, pos[1]+50, pos[2]+50);
-          cam.position.set(pos[0]+25, pos[1]-25, pos[2]-70);
-        }
+        //cam.position.set(pos[0]+25, pos[1]-25, pos[2]-70);
+        cam.position.set(pos[0]+3, pos[1]+3, pos[2]+3);
         cameraControls.target = new THREE.Vector3(pos[0], pos[1], pos[2]);
       } else {
         setNeutralCameraPosition();
