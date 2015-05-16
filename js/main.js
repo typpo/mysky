@@ -62,9 +62,6 @@
     , locked_object_size = -1
     , locked_object_color = -1
 
-  // 2012 da14 special case
-  var featured_2012_da14 = getParameterByName('2012_DA14') === '1';
-
   // glsl and webgl stuff
   var attributes
     , uniforms
@@ -84,12 +81,6 @@
     $('#controls .js-sort').css('font-weight', 'normal');
     $(this).css('font-weight', 'bold');
   });
-
-  // 2012 DA14 feature special case
-  if (featured_2012_da14) {
-    jed = toJED(new Date('2012-11-01'));
-    if (typeof mixpanel !== 'undefined') mixpanel.track('2012_da14 special');
-  }
 
   function initGUI() {
     var ViewUI = function() {
@@ -279,23 +270,6 @@
     scene.add(comet169pneat.getEllipse());
 
     planets = [mercury, venus, earth, mars, jupiter, comet169pneat];
-    if (featured_2012_da14) {
-      // Special: 2012 DA14
-      var asteroid_2012_da14 = new Orbit3D(Ephemeris.asteroid_2012_da14,
-          {
-            color: 0xff0000, width: 1, jed: jed, object_size: 1.7,
-          texture_path: opts.static_prefix + 'img/cloud4.png',   // not using loadTexture, no support for offline mode...
-          display_color: new THREE.Color(0xff0000),
-          particle_geometry: particle_system_geometry,
-          name: '2012 DA14'
-          });
-      scene.add(asteroid_2012_da14.getEllipse());
-      feature_map['2012 DA14'] = {
-        orbit: asteroid_2012_da14,
-        idx: 5
-      };
-      planets.push(asteroid_2012_da14);
-    }
 
     // Skybox
     var geometry = new THREE.SphereGeometry(3000, 60, 40);
@@ -792,12 +766,7 @@
 
     // handle when view mode is switched - need to clear every row but the sun
     /*
-    if (featured_2012_da14) {
-      $('#objects-of-interest tr:gt(2)').remove();
-    }
-    else {
-      $('#objects-of-interest tr:gt(1)').remove();
-    }
+    $('#objects-of-interest tr:gt(1)').remove();
     $('#objects-of-interest').append(featured_html).on('click', 'tr', function() {
       $('#objects-of-interest tr').css('background-color', '#000');
       var $e = $(this);
@@ -830,14 +799,6 @@
       asteroids_loaded = true;
     }
     createParticleSystem();   // initialize and start the simulation
-
-    /*
-    if (featured_2012_da14) {
-      setLock('earth');
-      $('#sun-selector').css('background-color', 'black');
-      $('#earth-selector').css('background-color', 'green');
-    }
-   */
 
     if (!first_loaded) {
       animate();
