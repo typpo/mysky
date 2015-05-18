@@ -499,7 +499,8 @@
         attributes.size.value[i] = 75;
         attributes.is_planet.value[i] = 1.0;
       } else {
-        attributes.size.value[i] = added_objects[i].opts.object_size;
+        //attributes.size.value[i] = added_objects[i].opts.object_size;
+        attributes.size.value[i] = 40;
         attributes.is_planet.value[i] = 0.0;
       }
 
