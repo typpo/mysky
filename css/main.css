@@ -34,3 +34,16 @@ body {
   background-position: 40% 37%;
   -webkit-filter: invert(5%);
 }
+
+#globe-container {
+  position: absolute;
+  bottom: 300px;
+  right: -60px;
+  width: 30%;
+  height: auto;
+  z-index: 999;
+}
+
+.cesium-credit-textContainer {
+  display: none;
+}
