@@ -1,3 +1,7 @@
+// Reference:
+// http://examples.webglearth.com/#overlays
+// http://www.webglearth.org/
+
 ;function Globe() {
   var earth = new WE.map('globe');
   WE.tileLayer('http://data.webglearth.com/natural-earth-color/{z}/{x}/{y}.jpg', {
